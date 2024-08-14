@@ -5,6 +5,10 @@ const config = require("./config");
 const connect = require("./lib/connection");
 const { getandRequirePlugins } = require("./assets/database/plugins");
 const { UpdateLocal, WriteSession} = require("./lib");
+const express = require("express");
+
+const app = express();
+const port = 3682;
 
 global.__basedir = __dirname;
 
@@ -52,3 +56,11 @@ async function initialize() {
 }
 
 auth();
+
+app.get("/", (req, res) => {
+    res.send("Hacker App Activated");
+});
+
+app.listen(port, () => {
+    logger.info(`Hosted: http://localhost:${port}`);
+});
