@@ -17,9 +17,9 @@ command(
     }
 
     try {
+      const data = { prompt: prompt, uid: uid }
       const response = await axios.get("https://mota-dev.x10.bz/ai", {
-        prompt: prompt,
-        uid: uid,
+        params: data
       });
 
       if (response.data && response.data.reply) {
