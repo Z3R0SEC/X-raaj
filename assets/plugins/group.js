@@ -59,10 +59,10 @@ command(
 );
 command(
   {
-    pattern: "gcpp ",
+    pattern: "gcpp",
     fromMe: isPrivate,
     desc: "Set profile picture",
-    type: "user",
+    type: "tools",
   },
   async (message, match, m) => {
     if (!message.isGroup) return await message.reply("_This command is for groups_");
@@ -78,10 +78,10 @@ command(
 );
 command(
   {
-    pattern: "fullgcpp",
+    pattern: "gcppful",
     fromMe: isPrivate,  
     desc: "Set Full profilr picture for Group",
-    type: "group",
+    type: "tools",
   },
   async (message, match, m) => {
     try{
@@ -407,10 +407,10 @@ function msToDateTime(ms) {
 command(
   {
     pattern: "grouplist",
-    fromMe: true,
+    fromMe: false,
     desc: "Get list of groups you are in",
     usage: 'grouplist',
-    type: "tool",
+    type: "tools",
   },
   async (message, match) => {
       try {
@@ -447,7 +447,7 @@ command(
     fromMe: true,
     desc: "scrap All Jid from your account",
     usage: '',
-    type: "tool",
+    type: "tools",
   },
   async (message, match) => {
       try {

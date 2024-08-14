@@ -1,17 +1,17 @@
 const { command, isPrivate } = require("../../lib");
  
-// Made with ❤ by AlienAlfa
+// Made with ❤ by Z3R0SEC
 const {
     translate
   } = require('@vitalets/google-translate-api');
   const defaultLang = 'en'
   
   command({
-       pattern: "trt",
+       pattern: "translate",
        fromMe: isPrivate,  
        desc: "Google Translate",
        dontAddCommandList: true,
-       type: "tool",
+       type: "tools",
   
     },
     async (message, match, m) => {
@@ -39,4 +39,3 @@ message.sendMessage(result.text);
       console.error("[Error]:", error);
     }
     })
-// Made with ❤ by AlienAlfa

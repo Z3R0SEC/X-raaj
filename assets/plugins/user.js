@@ -53,10 +53,10 @@ command(
 
 command(
   {
-    pattern: "pp ",
-    fromMe: true,
+    pattern: "pp",
+    fromMe: isPrivate,
     desc: "Set profile picture",
-    type: "user",
+    type: "util",
   },
   async (message, match, m) => {
     if (!message.reply_message.image)
@@ -70,9 +70,9 @@ command(
 command(
   {
     pattern: "fullpp",
-    fromMe: true,  
+    fromMe: isPrivate,
     desc: "Set Full profilr picture",
-    type: "user",
+    type: "util",
   },
   async (message, match, m) => {
     try{
@@ -90,9 +90,9 @@ command(
 command(
   {
     pattern: "setname",
-    fromMe: true,
+    fromMe: isPrivate,
     desc: "Set User name",
-    type: "user",
+    type: "util",
   },
   async (message, match) => {
     if (!match) return await message.reply("_Enter name_");
@@ -106,7 +106,7 @@ command(
     pattern: "block",
     fromMe: true,
     desc: "Block a person",
-    type: "user",
+    type: "util",
   },
   async (message, match) => {
     if (message.isGroup) {
@@ -131,7 +131,7 @@ command(
     pattern: "unblock",
     fromMe: true,
     desc: "Unblock a person",
-    type: "user",
+    type: "util",
   },
   async (message, match) => {
     if (message.isGroup) {
@@ -147,17 +147,17 @@ command(
       );
     } else {
       await message.unblock(message.jid);
-      return await message.reply("_User unblocked_");
+      return await message.reply("_User unblocked ..._");
     }
   }
 );
 
 command(
   {
-    pattern: "jid",
+    pattern: "uid",
     fromMe: true,
     desc: "Give jid of chat/user",
-    type: "user",
+    type: "util",
   },
   async (message, match) => {
     return await message.sendMessage(
@@ -173,7 +173,7 @@ command(
     pattern: "dlt",
     fromMe: true,
     desc: "deletes a message",
-    type: "user",
+    type: "util",
   },
   async (message, match, m, client) => {
     if (message.isGroup) {

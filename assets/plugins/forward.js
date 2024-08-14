@@ -5,7 +5,7 @@ command(
     pattern: "fwd",
     fromMe: true,
     desc: "Forwards the replied Message",
-    type: "Util",
+    type: "tools",
   },
   async (message, match, m) => {
     if (!m.quoted) return message.reply('Reply to something');

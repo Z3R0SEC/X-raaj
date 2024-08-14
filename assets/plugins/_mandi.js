@@ -12,9 +12,9 @@ const getRandom = (text) => { return `${Math.floor(Math.random() * 10000)}${text
 command(
     {
       pattern: "decrypt",
-      fromMe: true,  
-      desc: "Deencrypt text base(alfa)",
-      type: "tool",
+      fromMe: true,
+      desc: "Decrypt Text Messages",
+      type: "tools",
     },
     async (message, match) => {
       try{
@@ -25,34 +25,16 @@ command(
     }
   })
   
-  command(
-    {
-      pattern: "encrypt",
-      fromMe: true,  
-      desc: "Encrypt text base(alfa)",
-      type: "tool",
-    },
-    async (message, match) => {
-      try{
-        match = message.reply_message.text
-      const _0xc12340=_0x3eed;function _0x2cf2(){const _0x167136=['replaceAll','1044445PLAYpn','sendMessage','base64','3187317BWEvuz','1155555dNJwQL','toString','708184qDGQOD','from','1113640EUvYfE','1881836IKGZVH','12SFfmNn','9FNugtX','7550TThXOA','61APdnFp'];_0x2cf2=function(){return _0x167136;};return _0x2cf2();}(function(_0x15d03e,_0x466878){const _0x5c06bb=_0x3eed,_0x534730=_0x15d03e();while(!![]){try{const _0x31198c=parseInt(_0x5c06bb(0x18f))/0x1*(parseInt(_0x5c06bb(0x18e))/0x2)+parseInt(_0x5c06bb(0x186))/0x3+parseInt(_0x5c06bb(0x18b))/0x4+parseInt(_0x5c06bb(0x191))/0x5*(-parseInt(_0x5c06bb(0x18c))/0x6)+-parseInt(_0x5c06bb(0x185))/0x7+-parseInt(_0x5c06bb(0x188))/0x8+parseInt(_0x5c06bb(0x18d))/0x9*(parseInt(_0x5c06bb(0x18a))/0xa);if(_0x31198c===_0x466878)break;else _0x534730['push'](_0x534730['shift']());}catch(_0x2cc8c6){_0x534730['push'](_0x534730['shift']());}}}(_0x2cf2,0x39883));let int=match,inx=int['toString']()['split'](''),our='';for(let r of inx){our+=Buffer[_0xc12340(0x189)](r)[_0xc12340(0x187)](_0xc12340(0x193))+'/';}let fin=Buffer[_0xc12340(0x189)](our[_0xc12340(0x190)]('=',''))[_0xc12340(0x187)](_0xc12340(0x193));function _0x3eed(_0x250cc0,_0x1e70bb){const _0x2cf272=_0x2cf2();return _0x3eed=function(_0x3eeda6,_0x4d6b4b){_0x3eeda6=_0x3eeda6-0x185;let _0x54d02f=_0x2cf272[_0x3eeda6];return _0x54d02f;},_0x3eed(_0x250cc0,_0x1e70bb);}return await message[_0xc12340(0x192)](fin);
-    } catch (error) {
-      console.error("[Error]:", error);
-    }
-  })
 
-  
-  
-  //============================================================================================================================================
-// STATUS SAVER ( MAKE fromMe: false TO USE AS PUBLIC )
 command(
   {
-    on: "text",
+    on: "save",
     fromMe: false,
     desc: "Save or Give Status Updates",
     dontAddCommandList: true,
-    type: "Tool",
+    type: "tools",
   },
+
   async (message, match, m) => {
     try {
       if (message.isGroup) return;
@@ -73,11 +55,11 @@ command(
 );
  
   command({
-    pattern: "ttk",
+    pattern: "tictok",
     fromMe: isPrivate,  
     desc: "Download TikTok Videos",
     dontAddCommandList: true,
-    type: "download",
+    type: "saver",
   
   },
   async (message, match, m) => {
@@ -93,10 +75,10 @@ command({
   pattern: "tts",
   fromMe: isPrivate,
   desc: "google-tts",
-  type: "tool"
+  type: "tools"
 }, async (message, match) => {
   try {
-    if (!match) return await message.reply("Waiting for a query");
+    if (!match) return await message.reply("What Do You Want Me To Say For You ?");
 
     const getLanguageFromText = (input) => {
       const qmatch = input.match(/^\{(\w{2})\}\s*/);

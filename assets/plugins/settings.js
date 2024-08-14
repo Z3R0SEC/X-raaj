@@ -57,6 +57,7 @@ command({
      pattern: "snapshot",
      fromMe: isPrivate,
      desc: "Save a snapshot of the Group setings",
+     type: "tools",
   },
   async (message, match) => {
    console.log("'"+match+"'")

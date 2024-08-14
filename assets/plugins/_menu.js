@@ -2,7 +2,6 @@ const plugins = require("../../lib/plugins");
 const { command, isPrivate, clockString, pm2Uptime} = require("../../lib");
 const { fancy10, typewriter, tiny } = require("../../lib/fancy")
 const config = require("../../config");
-
 const { hostname, uptime, totalmem, freemem } = require("os");
 
 var tempo = (freemem / (1024 * 1024))
@@ -33,16 +32,16 @@ function formatTime(seconds) {
     timeArray.push(months + (months === 1 ? " month" : " months"));
   }
   if (days > 0) {
-    timeArray.push(days + (days === 1 ? " day" : " days"));
+    timeArray.push(days + (days === 1 ? "d" : "d"));
   }
   if (hours > 0) {
-    timeArray.push(hours + (hours === 1 ? " hour" : " hours"));
+    timeArray.push(hours + (hours === 1 ? "h" : "hs"));
   }
   if (minutes > 0) {
-    timeArray.push(minutes + (minutes === 1 ? " minute" : " minutes"));
+    timeArray.push(minutes + (minutes === 1 ? "m" : "ms"));
   }
   if (seconds > 0) {
-    timeArray.push(seconds + (seconds === 1 ? " second" : " seconds"));
+    timeArray.push(seconds + (seconds === 1 ? "s" : "s"));
   }
 
   return timeArray.join(", ");
@@ -50,8 +49,8 @@ function formatTime(seconds) {
 
 command(
   {
-    pattern: "menu",
-    fromMe: isPrivate,  
+    pattern: "cmd",
+    fromMe: isPrivate,
     desc: "Show All commands",
     dontAddCommandList: true,
     type:"user",
@@ -76,24 +75,20 @@ Description: ${i.desc}\`\`\``;
       } else {
       let { prefix } = message;
       let [date, time] = new Date()
-        .toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+        .toLocaleString("en-ZA", { timeZone: "Africa/Johannesburg" })
         .split(",");
 
         let menu = `╭═══〘 ${config.BOT_NAME} 〙═══⊷❍
 ┃✧╭──────────────
+┃✧│ *Owner* : ${config.OWNER_NAME}
+┃✧│ *User* : ${message.pushName}
+┃✧│ *RAM* : ${avbMem.toFixed(2)} GB
+┃✧│ *USED* : ${allFreeMem.toFixed(0)}GB / ${avbMem.toFixed(2)}GB
+┃✧│ *Commands* : ${plugins.commands.length}
+┃✧│ *Uptime* : ${await formatTime(process.uptime().toFixed(0))}
+┃✧│ *Version* : ${require("../../package.json").version}
 ┃✧│
-┃✧│ Owner : ${config.OWNER_NAME}
-┃✧│ User : ${message.pushName}
-┃✧│ Total RAM: ${avbMem.toFixed(2)} GB
-┃✧│ Available RAM: ${allFreeMem.toFixed(0)}GB / ${avbMem.toFixed(2)}GB
-┃✧│ Commands: ${plugins.commands.length}
-┃✧│ Uptime: ${await formatTime(process.uptime().toFixed(0))}
-┃✧│ Version: ${require("../../package.json").version}
-┃✧│
-┃✧│
-┃✧│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃✧│  ▎▍▌▌▉▏▎▌▉▐▏▌▎
-┃✧│   ${ await message.pushName}
+┃✧│   [ » *${ await message.pushName}* « ]
 ┃✧│
 ┃✧╰───────────────
 ╰═════════════════⊷`;
@@ -110,7 +105,7 @@ Description: ${i.desc}\`\`\``;
         if (!command.dontAddCommandList && cmd !== undefined) {
           let type;
           if (!command.type) {
-            type = "misc";
+            type = "util";
           } else {
             type = command.type.toLowerCase();
           }
@@ -134,7 +129,7 @@ Description: ${i.desc}\`\`\``;
       });
 
       menu += `\n`;
-      //menu += `_🔖Send ${prefix}menu <command name> to get detailed information of specific command._\n*📍Eg:* _${prefix}menu plugin_`;
+      menu += `» *Powered By Z3R0SEC & SLADE*\n»Type *cmd <command>* To get cmd info`;
       let fin = await menu.toUpperCase()
       return await message.client.sendMessage(message.jid, {text: typewriter(fin)});
 
@@ -158,7 +153,7 @@ command(
   async (message, match, { prefix }) => {
     try{
     let menu = `╭────────────────╮
-    ALIEN ALFA
+     *Z3R0SEC*
 ╰────────────────╯
 ╭────────────────
 `

@@ -15,10 +15,10 @@ const { downloadMediaMessage } = require("@whiskeysockets/baileys");
 
 command(
   {
-   pattern: "vv",
+   pattern: "view-once",
    fromMe: isPrivate,
    desc: "Forwards The View once messsage",
-   type: "tool",
+   type: "tools",
   },
   async (message, match, m) => {
    try{
@@ -31,10 +31,10 @@ command(
 
 command(
   {
-    pattern: "fetch ?(.*)",
+    pattern: "dwn",
     fromMe: isPrivate,  
     desc: "Downloads from a direct link",
-    type: "downloader",
+    type: "saver",
   },
   async (message, match) => {
     try{
@@ -71,7 +71,7 @@ command(
     pattern: "qr",
     fromMe: isPrivate,
     desc: "Read/Write Qr.",
-    type: "Tool",
+    type: "tools",
   },
   async (message, match, m) => {
     match = match || (message.reply_message && message.reply_message.text);
@@ -82,7 +82,7 @@ command(
     } else if (!message.reply_message || !message.reply_message.image) {
       return await message.sendMessage(
         message.jid,
-        "*Example : qr test*\n*Reply to a qr image.*"
+        "*Example : qr <url/link>.*"
       );
     }
 
@@ -110,7 +110,7 @@ command(
     pattern: "bitly ?(.*)",
     fromMe: isPrivate,
     desc: "Converts Url to bitly",
-    type: "tool",
+    type: "tools",
   },
   async (message, match) => {
     match = match || message.reply_message.text;
@@ -126,7 +126,7 @@ command(
     pattern: "usage ?(.*)",
     fromMe: true,
     desc: "shows memory usage",
-    type: "tool",
+    type: "tools",
   },
   async (message, match) => {
     var { key } = await message.reply("_Procesing that request!_");
@@ -139,7 +139,7 @@ command(
     pattern: "getqr ?(.*)",
     fromMe: isPrivate,  
     desc: "Get connection QR",
-    type: "misc",
+    type: "util",
   },
   async (message, match) => {
     try{
@@ -161,7 +161,7 @@ command(
     pattern: "get ?(.*)",
     fromMe: true,  
     desc: "Get any file form the bot with the correct path",
-    type: "misc",
+    type: "util",
   },
   async (message, match) => {
     try{
@@ -178,6 +178,7 @@ command(
 command(
   {
     pattern: "doc",
+    type: "util",
     fromMe: isPrivate,
     desc: "Convert file to document",
   },
@@ -198,8 +199,9 @@ command(
 
 command(
   {
-    pattern: "git",
+    pattern: "gitclone",
     fromMe: isPrivate,
+    type: "util",
     desc: "get the zip of git repo (Public)",
   },
   async (message, match, m) => {
@@ -227,15 +229,15 @@ const BASE_URL = "https://api.musixmatch.com/ws/1.1/";
 
 command(
   {
-    pattern: "lyric",
+    pattern: "lyrics",
     fromMe: isPrivate,
     desc: "Searches for lyrics based on the format: song;artist",
     type: "tools",
   },
   async (message, match) => {
-    const [song, artist] = match.split(";").map((item) => item.trim());
+    const [song, artist] = match.split("-").map((item) => item.trim());
     if (!song || !artist) {
-      await message.reply("Search with this format: \n\t_lyric song;artist_");
+      await message.reply("Search with this format: \n\t *_lyric song - artist_*");
     } else {
       try {
         let trackId = null;
@@ -274,7 +276,7 @@ command(
 
           let lyrics = lyricsData.message.body.lyrics.lyrics_body;
           const disclaimer =
-            "******* This Lyrics is NOT for Commercial use *******";
+            "******* LYRICS NOT FOR COMMECIAL *******";
           lyrics = lyrics.replace(disclaimer, "");
 
           const data = {

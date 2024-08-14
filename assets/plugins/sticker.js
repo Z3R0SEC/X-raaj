@@ -7,7 +7,7 @@ command(
     pattern: "sticker",
     fromMe: isPrivate,
     desc: "Converts Photo/video/text to sticker",
-    type: "converter",
+    type: "game",
   },
   async (message, match, m) => {
     if (
@@ -42,7 +42,7 @@ command(
     pattern: "take",
     fromMe: isPrivate,
     desc: "Converts Photo or video to sticker",
-    type: "converter",
+    type: "game",
   },
   async (message, match, m) => {
     if (!message.reply_message.sticker)
@@ -50,7 +50,7 @@ command(
     let isme = await fromMe(message.participant)
     let packname, author;
     if(!isme){
-       packname = match.split(":")[0] || "𝞓𝙇𝞘𝞢𝞜-𝞓𝙇𝙁𝞓";
+       packname = match.split(":")[0] || "X-RaaJ-K";
        author = match.split(":")[1] || message.pushName;
     } else {
        packname = match.split(":")[0] || config.PACKNAME;
@@ -66,7 +66,7 @@ command(
     pattern: "photo",
     fromMe: isPrivate,
     desc: "Changes sticker to Photo",
-    type: "converter",
+    type: "game",
   },
   async (message, match, m) => {
     if (!message.reply_message.sticker)
@@ -81,7 +81,7 @@ command(
     pattern: "mp3",
     fromMe: isPrivate,
     desc: "converts video/voice to mp3",
-    type: "downloader",
+    type: "saver",
   },
   async (message, match, m) => {
     let buff = await m.quoted.download();
@@ -102,7 +102,7 @@ command(
     pattern: "mp4",
     fromMe: isPrivate,
     desc: "converts video/voice to mp4",
-    type: "downloader",
+    type: "saver",
   },
   async (message, match, m) => {
     if (
@@ -132,7 +132,7 @@ command(
     pattern: "img",
     fromMe: isPrivate,
     desc: "Converts Sticker to image",
-    type: "converter",
+    type: "game",
   },
   async (message, match, m) => {
     if (!message.reply_message.sticker)

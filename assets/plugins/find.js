@@ -4,7 +4,7 @@ const acrcloud = require("acrcloud")
 
 command(
     {
-      pattern: "find",
+      pattern: "search",
       fromMe: true,
       desc: "Find the music",
       type: "tools",

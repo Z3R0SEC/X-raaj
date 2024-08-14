@@ -42,11 +42,11 @@ function formatTime(seconds) {
 }
 command(
   {
-    pattern: "#button",
+    pattern: "hello",
     fromMe: true,
     desc: "send a button message",
-    usage: "#button",
-    type: "message",
+    usage: "hello",
+    type: "tools",
     dontAddCommandList: true,
   },
   async (message, match, m) => {
@@ -56,16 +56,16 @@ command(
         {
           type: "list",
           params: {
-            title: "Button 1",
+            title: "Z3R0SEC",
             sections: [
               {
-                title: "Button 1",
+                title: "X-RaaJ-K",
                 rows: [
                   {
-                    header: "title",
-                    title: "Button 1",
-                    description: "Description 1",
-                    id: "#menu",
+                    header: "X-RaaJ-K",
+                    title: "Button",
+                    description: "Donate Us",
+                    id: "cmd",
                   },
                 ],
               },
@@ -82,15 +82,15 @@ command(
         {
           type: "url",
           params: {
-            display_text: "Neeraj-x0",
-            url: "https://www.neerajx0.xyz/",
-            merchant_url: "https://www.neerajx0.xyz/",
+            display_text: "Please Donate",
+            url: "https://pay.capitecbank.co.za/payme/VGJ7YN",
+            merchant_url: "https://pay.capitecbank.co.za/payme/VGJ7YN",
           },
         },
         {
           type: "address",
           params: {
-            display_text: "Address",
+            display_text: "4 Festina Road Delville",
             id: "message",
           },
         },
@@ -109,14 +109,14 @@ command(
         {
           type: "call",
           params: {
-            display_text: "Call",
-            phone_number: "123456789",
+            display_text: "Call Me",
+            phone_number: "27847611848",
           },
         },
       ],
       header: {
-        title: "X-Asena",
-        subtitle: "WhatsApp Bot",
+        title: "X-RaaJ-K",
+        subtitle: "Whatsapp Version",
         hasMediaAttachment: false,
       },
       footer: {
@@ -134,7 +134,7 @@ command(
 
 command({
   pattern: "help"
-  , fromMe: isPrivate,  
+  , fromMe: isPrivate,
    dontAddCommandList: true
 , }
 , async (message, match, m) => {
@@ -143,16 +143,16 @@ command({
   try{
 
   let [date, time] = new Date()
-      .toLocaleString("en-IN", {
-          timeZone: "Asia/Kolkata"
+      .toLocaleString("en-ZA", {
+          timeZone: "Africa/Johannesburg"
       })
       .split(",");
 
 let fin =  `╭───────────㋰
 │╭──[ *${config.BOT_NAME}* ]──㋰
-││USER :  ${message.pushName}
-││NUMBER :  ${m.sender.split("@")[0]}
-││WORKTYPE : ${config.WORK_TYPE}
+││USER »  ${message.pushName}
+││NUMBER »  ${m.sender.split("@")[0]}
+││WORKTYPE » ${config.WORK_TYPE} BOT
 │╰──㋰
 │
 │╭──[ *BOT INFO*]──㋰
@@ -160,7 +160,7 @@ let fin =  `╭───────────㋰
 ││TIME : ${time}
 ││DATE : ${date}
 ││OWNER : ${config.OWNER_NAME}
-││PREFIX : ${config.HANDLERS}
+││PREFIX : No Prefix
 ││HOSTNAME : ${hostname().split("-")[0]}
 ││UPTIME : ${await formatTime(process.uptime().toFixed(0))}
 │╰──㋰
@@ -186,14 +186,14 @@ let data = {
     {
       type: "url",
       params: {
-        display_text: "Alien-Alfa",
-        url: "https://github.com/Alien-Alfa/",
-        merchant_url: "https://github.com/Alien-Alfa/",
+        display_text: "Donate",
+        url: "https://pay.capitecbank.co.za/payme/VGJ7YN",
+        merchant_url: "https://pay.capitecbank.co.za/payme/VGJ7YN",
       },
     },
   ],
   footer: {
-    text: "𝞓𝙇𝞘𝞢𝞜-𝞓𝙇𝙁𝞓",
+    text: "[ » X-RāāJ-K « ]",
   },
   body: {
    text: await fin

@@ -142,10 +142,10 @@ async function endTriviaGame(message, userId) {
  */
 command(
   {
-    pattern: "xkcd",
+    pattern: "comic",
     fromMe: isPrivate,
     desc: "Send a random XKCD comic.",
-    type: "misc",
+    type: "fun",
   },
   async (message, match, m) => {
     try {
@@ -170,9 +170,9 @@ command(
 
 command(
   {
-    pattern: "joke",
+    pattern: "dark",
     fromMe: isPrivate,
-    desc: "Fetch a random joke",
+    desc: "Fetch a random dark joke",
     dontAddCommandList: false,
   },
   async (message, match) => {

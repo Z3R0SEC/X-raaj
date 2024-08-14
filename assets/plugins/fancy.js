@@ -6,7 +6,7 @@ command(
     pattern: "fancy",
     fromMe: isPrivate,
     desc: "converts text to fancy text",
-    type: "converter",
+    type: "tools",
   },
   async (message, match) => {
     let text = match;

@@ -14,12 +14,12 @@ async function fetcher(apiUrl, message, m) {
             { text: mess,
             contextInfo:{
             externalAdReply: {
-                title: `AlienAlfa`,
-                body: `WhatsBotAlfa-MD`,
+                title: `Z3R0SEC`,
+                body: `X-RaaJ-K`,
                 previewType: "PHOTO",
                 thumbnailUrl: ``,
                 thumbnail: await getBuffer(data.Poster),
-                sourceUrl: `github.com/alien-alfa`}
+                sourceUrl: `github.com/Z3R0SEC`}
             }
         })
 
@@ -34,7 +34,7 @@ command(
         pattern: "imdb",
         fromMe: isPrivate,
         desc: "imdb movie info",
-        type: "tool",
+        type: "tools",
     },
     async (message, match, m) => {
         const apiUrl = `https://www.omdbapi.com/?apikey=3c8ee796&t=${await match}`;

@@ -51,7 +51,7 @@ command({
       pattern: "ping",
       fromMe: isPrivate,
       desc: "To check ping",
-      type: "user",
+      type: "tools",
   },
   async (message, match) => {
       let me = await fromMe(message.participant)
@@ -65,7 +65,7 @@ command({
               const end = new Date().getTime();
               setTimeout(async () => {
                   return await message.client.sendMessage(message.jid, {
-                      text: "Ping: " + (end - start) + " ms",
+                      text: "*_Ping:_* " + (end - start) + " ms",
                       edit: message.key
                   });
               }, 1000)
@@ -92,11 +92,12 @@ command({
       }
   }
 );
+
 command({
       pattern: "uptime",
       fromMe: isPrivate,
       desc: "To check uptime",
-      type: "user",
+      type: "tools",
   },
   async (message, match) => {
     let me = await fromMe(message.participant)
@@ -104,12 +105,12 @@ command({
             if (me) {
           try {
               await message.client.sendMessage(message.jid, {
-                  text: "```Fetching Uptime...```",
+                  text: "```Getting Bot Uptime...```",
                   edit: message.key
               });
               setTimeout(async () => {
                   return await message.client.sendMessage(message.jid, {
-                      text: "Uptime: " + await formatTime(process.uptime().toFixed(0)),
+                      text: "```Uptime: ```" + await formatTime(process.uptime().toFixed(0)),
                       edit: message.key
                   });
               }, 1000)
@@ -135,21 +136,21 @@ command({
   }
 );
 
-// Thanks to ❤ Ragnork ❤ for this code
+// Thanks to ❤  SUHAIL ❤ for this code
 
 
 command({
-    pattern: 'onwa ?(.*)',
+    pattern: 'isActive',
     fromMe: true,
     desc: 'Lists numbers registered on wa, not registered etc.',
-    use: 'whatsapp',
-    usage: 'onwa +48888888xxx'
+    type: 'game',
+    usage: 'isActive +2784761...'
 }, (async (message, match) => {
-    if (!match[1]) return await message.sendReply("_Need number!_");
-    let {x} = await message.reply("_Processing..._");
+    if (!match[1]) return await message.sendReply("_Missing Phone Number_");
+    let {x} = await message.reply("```Checking Phone Number ...```");
     await processOnwa(message, match)
     return await message.client.sendMessage(message.jid, {
-        text: '_Task complete!_',
+        text: '_Check Complited',
         edit: x
     });
 }));
