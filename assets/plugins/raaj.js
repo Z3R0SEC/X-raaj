@@ -17,7 +17,7 @@ command(
     }
 
     try {
-      const response = await axios.post("https://mota-dev.x10.bz/ai", {
+      const response = await axios.get("https://mota-dev.x10.bz/ai", {
         prompt: prompt,
         uid: uid,
       });
