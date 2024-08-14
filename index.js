@@ -62,5 +62,9 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
+<<<<<<< HEAD
     logger.info(`Hosted: http://localhost:${port}`);
+=======
+    console.log(`Hosted: http://localhost:${port}`);
+>>>>>>> 670472f861277f1096caeb5a5f0fad193f64f8be
 });
