@@ -5,19 +5,28 @@ const config = require("../../config");
 const { AiChat  } = require("../database");
 const axios = require("axios");
 
+
 const raaja = async (messe, uid) => {
-   const appi = "https://mota-dev.x10.bz/ai";
-   const data = { prompt: messe, uid: uid }
-   const req = await axios.get(appi, { params: data });
-   const res = req.data;
-   if (res.reply) {
-      return res.reply;
-   }
-   if (res.error) {
-      return res.error;
+   try {
+      const appi = "https://mota-dev.x10.bz/ai";
+      const data = { prompt: messe, uid: uid };
+      const req = await axios.get(appi, { params: data });
+      const res = req.data;
+
+      if (res.reply) {
+         return res.reply;
+      } else if (res.error) {
+         return res.error;
+      } else {
+         return "No response from the server.";
+      }
+   } catch (error) {
+      return `An error occurred: ${error.message}`;
    }
 };
-                                                                      command({ on: "raaj", fromMe: false, desc: "Chat With RaaJ",  type: "ai", },
+
+
+command({ on: "raaj", fromMe: false, desc: "Chat With RaaJ", type: "ai" },
    async (message, match, m) => {
      const userID = message.key.remoteJid;
      const mesRa = message.text;
@@ -25,10 +34,11 @@ const raaja = async (messe, uid) => {
      if (answr) {
         await message.reply(answr);
      } else {
-        await message.reply("An Error Occured While Chatting With Raaj");
+        await message.reply("An Error Occurred While Chatting With Raaj");
      }
    };
 );
+
 
 command(
   {
