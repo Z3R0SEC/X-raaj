@@ -9,7 +9,7 @@ command(
     type: "ai",
   },
   async (message, match, m) => {
-    const prompt = match.trim();                               
+    const prompt = message.text;                               
     const uid = message.sender; // Assuming uid is the sender's ID
 
     if (!prompt) {
