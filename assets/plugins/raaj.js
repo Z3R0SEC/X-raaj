@@ -4,11 +4,13 @@ const axios = require("axios");
 command(
   {
     pattern: "raaj",
-    fromMe: isPrivate,                                         desc: "Chat With Raaj AI",
+    fromMe: isPrivate,                                         
+    desc: "Chat With Raaj AI",
     type: "ai",
   },
   async (message, match, m) => {
-    const prompt = match.trim();                               const uid = message.sender; // Assuming uid is the sender's ID
+    const prompt = match.trim();                               
+    const uid = message.sender; // Assuming uid is the sender's ID
 
     if (!prompt) {
       return message.reply("*_Whats New ?_*");
@@ -27,7 +29,7 @@ command(
       }
     } catch (error) {
       console.error("*Error interacting with AI API:*", error.message);
-      message.reply(`*_X-RaaJ-K_*\n\n${error.message}`);
+      message.reply(`*_X-RaaJ-K_*\n\n${error.message}\n\n${prompt}`);
     }
   }
 );
