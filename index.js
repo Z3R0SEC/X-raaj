@@ -62,5 +62,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-    logger.info(`Hosted: http://localhost:${port}`);
+    console.log(`Hosted: http://localhost:${port}`);
 });
