@@ -25,7 +25,7 @@ command(
       if (response.data && response.data.reply) {
         message.reply(`*${response.data.reply}*`);
       } else {
-        message.reply("*Sorry I Dont Have Answer To Your Message*");
+        message.reply("*Sorry I Dont Have Answer To Your Message*\n\n" + response.data);
       }
     } catch (error) {
       console.error("*Error interacting with AI API:*", error.message);
