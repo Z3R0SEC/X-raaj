@@ -53,7 +53,7 @@ command(
     fromMe: isPrivate,
     desc: "Show All commands",
     dontAddCommandList: true,
-    type:"user",
+    type:"util",
   },
   async (message, match) => {
     try{
@@ -118,8 +118,7 @@ Description: ${i.desc}\`\`\``;
       cmnd.sort();
       category.sort().forEach((cmmd) => {
         menu += `
-╭════〘 ${cmmd} 〙════⊷❍\n┃✧╭─────────────────
-┃✧│ `;
+╭════〘 ${cmmd} 〙════⊷❍\n┃✧╭─────────────────`;
         let comad = cmnd.filter(({ type }) => type == cmmd);
         comad.forEach(({ cmd }, num) => {
           menu += `\n┃✧│ ${cmd.trim()}`;
