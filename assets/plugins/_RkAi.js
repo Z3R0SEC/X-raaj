@@ -106,32 +106,3 @@ command(
     }
   }
 );
-
-
-command(
-  {
-    pattern: "restart",
-    fromMe: true,
-    type: "tools",
-    desc: "Restart Bot",
-  },
-  async (message) => {
-    await message.reply(`_Restarting..._`);
-      await process.send("reset")
-  }
-);
-
-
-command(
-  {
-    pattern: "shutdown",
-    fromMe: true,
-    type: "heroku",
-    desc: "Dyno off",
-    type: "heroku",
-  },
-  async (message) => {
-      await message.reply(`_Shutting down!_`);
-      await delay(1000).then(() =>  process.send("Kill")
-  }
-);
