@@ -1,6 +1,7 @@
-const { command, isPrivate } = require("../../lib");            const axios = require("axios");
+const { command, isPrivate } = require("../../lib");
+const axios = require("axios");
 
-                                                                const dallE = async (prompt) => {
+const dallE = async (prompt) => {
    try {
      const req = await axios.get("https://mota-dev.x10.bz/dalle", { params: { prompt: prompt }});
      const res = req.data;                                           if (res && res.image) {
@@ -133,39 +134,9 @@ command(
     const uid = message.pushName || "4902638493";
     const missingYou = match || message.reply_message.text;
     if (!missingYou) {
-      return message.reply("*_Whats New ?_*");
+      return message.reply("*_Usage: dalle <prompt message>_*");
     }
     const result = dallE(missingYou);
-    await message.sendFromUrl(url,{caption: `[ » X-RaaJ-K - Dale « ]`});
+    await message.sendFromUrl(result,{caption: `[ » X-RaaJ-K - Dale « ]`});
  }
-);
-
-
-
-command(
-  {
-    pattern: "restart",
-    fromMe: true,
-    type: "tools",
-    desc: "Restart Bot",
-  },
-  async (message) => {
-    await message.reply(`_Restarting..._`);
-      await process.send("reset")
-  }
-);
-
-
-command(
-  {
-    pattern: "shutdown",
-    fromMe: true,
-    type: "heroku",
-    desc: "Dyno off",
-    type: "heroku",
-  },
-  async (message) => {
-      await message.reply(`_Shutting down!_`);
-      await delay(1000).then(() =>  process.send("Kill")
-  }
 );
