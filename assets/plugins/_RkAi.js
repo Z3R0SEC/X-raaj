@@ -137,6 +137,11 @@ command(
       return message.reply("*_Usage: dalle <prompt message>_*");
     }
     const result = dallE(missingYou);
-    await message.sendFromUrl(result,{caption: `[ » X-RaaJ-K - Dale « ]`});
- }
+    await message.sendMessage(
+        message.jid,
+        result,
+        { quoted: message.data },
+        "image"
+      );
+  }
 );
