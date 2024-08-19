@@ -55,6 +55,7 @@
     "@vitalets/google-translate-api":"^9.2.0",
     "@xaviabot/fb-downloader":"^1.0.14",
     "archiver":"^7.0.1",
+    "child_process": "latest",
     "request":"^2.88.2",
     "axios-retry":"^3.1.9",
     "stream-buffers":"3.0.2"
