@@ -5,7 +5,7 @@ const { fancy10, typewriter, tiny } = require("../../lib/fancy")
 
 function formatTime(seconds) {
   if (isNaN(seconds) || seconds < 0) {
-    return "Invalid input";
+    return "Invalid input please restart";
   }
 
   const months = Math.floor(seconds / (30 * 24 * 60 * 60));
