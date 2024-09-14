@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { command, isPrivate } = require("../../lib");
 
 const standbyAI = async (name, msg) => {
     try {
