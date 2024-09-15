@@ -15,10 +15,11 @@ command(
       if (!match) {
         return await message.reply("Hello ✨😄 How Can I Help You!");
       }
-      let response = await axios.get('https://mota-dev.x10.bz/ai', {
+      let response = await axios.get('https://mota-dev.x10.bz/thabani', {
         params: {
           uid: message.jid,
           prompt: match,
+          name: message.pushName
         },
       });
 
@@ -53,7 +54,7 @@ command(
 
     } catch (error) {
       console.error("[Error]:", error);
-      return await message.sendMessage(message.jid, "Failed to get AI response. Please try again later.");
+      return await message.sendMessage(message.jid, "Failed to get AI response. Please try again later." + error);
     }
   }
 );
